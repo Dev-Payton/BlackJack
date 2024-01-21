@@ -1,4 +1,5 @@
-package com.paytondev.blackjack;
+
+package com.paytondev.blackjack.java;
 
 import static org.junit.jupiter.api.Assertions.*;
 

@@ -3,8 +3,7 @@ package com.paytondev.BlackJack;
 public class Computer {
 
    int computerChips;
-   private PlayerCards computerDeck = new PlayerCards();
-
+\
    public Computer(){
       computerChips = 500;
    }

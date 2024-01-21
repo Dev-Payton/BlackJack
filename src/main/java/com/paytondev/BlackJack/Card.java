@@ -3,19 +3,59 @@ package com.paytondev.BlackJack;
 public class Card {
 
     private int FACE;
-    private  int SUIT;
+    private int SUIT;
 
-    public Card() {
-        FACE = (int) (Math.random() * 13 + 1);
-        SUIT = (int) (Math.random() * 4 + 1);
+    private int realFaceValue;
 
-    }
 
     public Card(int setFace, int setSuit) {
         this.FACE = setFace;
         this.SUIT = setSuit;
+        assignRealFaceValue();
     }
 
+    private void assignRealFaceValue() {
+        switch (FACE) {
+            case 11, 12, 13:
+                realFaceValue = 10;
+                break;
+            case 1:
+                realFaceValue = 11;
+                break;
+            default:
+                realFaceValue = FACE;
+                break;
+        }
+
+    }
+
+    public int getRealFaceValue() {
+        return realFaceValue;
+    }
+    public int getSuit() {
+        return SUIT;
+    }
+
+
+
+    public void setRealFace(int setValue) {
+        this.FACE = setValue;
+    }
+
+
+
+
+    @Override
+    public String toString() {
+        for (Suit s : Suit.values()) {
+            for (Face f : Face.values()) {
+                if (s.suitNumber == SUIT && f.faceNumber == FACE) {
+                    return f.name() + " of " + s.name();
+                }
+            }
+        }
+        return null;
+    }
 
     private enum Suit {
 
@@ -35,7 +75,7 @@ public class Card {
     }
 
     private enum Face {
-        ACE(11),
+        ACE(1),
         TWO(2),
         THREE(3),
         FOUR(4),
@@ -45,9 +85,9 @@ public class Card {
         EIGHT(8),
         NINE(9),
         TEN(10),
-        JACK(10),
-        QUEEN(10),
-        KING(10);
+        JACK(11),
+        QUEEN(12),
+        KING(13);
 
 
         final int faceNumber;
@@ -59,36 +99,7 @@ public class Card {
     }
 
 
-    public int getFACE() {
-        return FACE;
-    }
 
 
-    public void setFace(int setValue){
-        this.FACE = setValue;
-    }
-
-
-    public int getSuit() {
-        return SUIT;
-    }
-
-    public String getFaceString() {
-        return "" + FACE;
-    }
-
-    public String getSuitString() {
-        return "" + SUIT;
-    }
-
-    public void displayCard(){
-        for(Suit s : Suit.values()){
-            for (Face f : Face.values()){
-                if (s.suitNumber == SUIT && f.faceNumber == FACE){
-                    System.out.println(f.name() + " of " + s.name());
-                }
-            }
-        }
-    }
 
 }

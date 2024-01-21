@@ -6,21 +6,21 @@ import java.util.Scanner;
 
 public class GameEngine {
     ArrayList<Computer> computerPlayers = new ArrayList<>();
+    Dealer dealer;
     Player player = new Player();
-
     Scanner scanner = new Scanner(System.in);
 
     public GameEngine(){
-
-
+        player.setPlayerName();
+        setPlayers();
     }
 
+
+    // The actual flow of the game starts here, initializing the dealer and the player passing them as parameters so that the dealer can manage the players and computers respectively
    public void startGame() {
-        for (Computer c : computerPlayers){
+
 
    }
-
-        }
 
 
     public void setPlayers(){
