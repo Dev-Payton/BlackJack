@@ -14,6 +14,12 @@ public class ShoeDeck {
         shuffleShoeDeck();
     }
 
+    public Card dealCard(){
+        Card card = sixDecksOfCards.get(0);
+        sixDecksOfCards.remove(0);
+        return card;
+    }
+
 
 
 

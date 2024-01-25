@@ -1,8 +1,7 @@
 package com.paytondev.BlackJack;
 
-import com.paytondev.BlackJack.Card;
-
 import java.util.ArrayList;
+import java.util.List;
 
 public class PlayerHand {
 
@@ -27,7 +26,14 @@ public class PlayerHand {
             System.out.println(card.toString());
         }
     }
+    public List<Card> returnPlayerHand() {
+        return new ArrayList<>(playerHand);
+    }
 
+
+    public void resetHand(){
+        playerHand.clear();
+    }
 
     public int checkHand() {
         int currentHand = 0;
