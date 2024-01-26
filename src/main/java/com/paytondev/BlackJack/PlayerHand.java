@@ -16,7 +16,7 @@ public class PlayerHand {
 
     }
 
-    public void recieveCard(Card card){
+    public void receiveCard(Card card){
         playerHand.add(card);
     }
 

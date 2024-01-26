@@ -37,13 +37,9 @@ public class Card {
     }
 
 
-
     public void setRealFace(int setValue) {
         this.FACE = setValue;
     }
-
-
-
 
     @Override
     public String toString() {

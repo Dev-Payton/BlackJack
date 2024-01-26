@@ -12,27 +12,30 @@ public class GameEngine {
     Scanner scanner = new Scanner(System.in);
 
     public GameEngine(){
-        setPlayers();
-
+        setComputerPlayers();
     }
 
 
     // The actual flow of the game starts here, initializing the dealer and the player passing them as parameters so that the dealer can manage the players and computers respectively
    public void startGame() {
+       player = new Player();
+       playerList.add(player);
+       dealer = new Dealer(playerList);
+
+       dealer.dealCards();
+       dealer.displayDealerFirstCard();
 
    }
 
 
-    public void setPlayers(){
-        System.out.println("BlackJack\n\t Version 1.0");
+    public void setComputerPlayers(){
+
         System.out.println("How many computer players would you like to add to the table");
         int numberOfPlayers = scanner.nextInt();
         for (int i = numberOfPlayers; i > 0; i--){
             playerList.add(new Computer());
         }
-        player = new Player();
-        playerList.add(player);
-        dealer = new Dealer(playerList);
+
     }
 
 

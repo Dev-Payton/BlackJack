@@ -14,10 +14,17 @@ public class Dealer {
 
         public void dealCards(){
             for (int i = 0; i < 2; i++){
-                dealerHand.recieveCard(shoeDeck.dealCard());
+                dealerHand.receiveCard(shoeDeck.dealCard());
                 for (Player p : playerList){
                     p.recieveCard(shoeDeck.dealCard());
                 }
+            }
+        }
+            // IMPLEMENT NAMES HERE AND IMPLEMENT THE INVOLVED METHODS
+        public void displayAllPlayerHands(){
+            for (Player p : playerList){
+                System.out.println();
+                p.playerHand.displayPlayerHand();
             }
         }
 
