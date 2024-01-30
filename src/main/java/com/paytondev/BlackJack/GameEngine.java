@@ -1,5 +1,6 @@
 package com.paytondev.BlackJack;
 
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -9,6 +10,7 @@ public class GameEngine {
     Dealer dealer;
     Player player;
     HumanPlayer humanPlayer = new HumanPlayer();
+
     Scanner scanner = new Scanner(System.in);
 
     public GameEngine(){
@@ -33,12 +35,37 @@ public class GameEngine {
         System.out.println("How many computer players would you like to add to the table");
         int numberOfPlayers = scanner.nextInt();
         for (int i = numberOfPlayers; i > 0; i--){
-            playerList.add(new Computer());
+            playerList.add(new Computer(assignComputerName()));
         }
 
     }
 
 
+// Here we are grabbing a random
+    public String assignComputerName(){
+        ArrayList<String> nameList = new ArrayList<>();
+        try {
+            File file = new File("/Users/paytonkeultjes/Computer-Science-Main/BlackJackv1/src/main/java/com/paytondev/BlackJack/first-names.txt");
+            BufferedReader reader = new BufferedReader(new FileReader(file));
+            String temp;
+            int random = (int) (Math.random() * 4945 + 1);
+            while((temp = reader.readLine()) != null ){
+                nameList.add(temp);
+            }
+            String delayedString = nameList.get(random);
+            nameList.clear();
+            return delayedString;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
+    public void testComputerNames(){
+        for (Player p : playerList){
+            System.out.println(p.getName());
+        }
+    }
 
 
 }

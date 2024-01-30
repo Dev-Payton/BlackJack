@@ -4,7 +4,7 @@ public class HumanPlayer extends Player{
 
 
     @Override
-    public void recieveCard(Card card) {
+    public void receiveCard(Card card) {
         playerHand.receiveCard(card);
     }
 

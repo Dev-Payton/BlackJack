@@ -2,9 +2,13 @@ package com.paytondev.BlackJack;
 
 public class Computer extends Player {
 
+
+   String computerName;
+
    int computerChips;
 
-   public Computer(){
+   public Computer(String name){
+      this.computerName = name;
       computerChips = 500;
    }
 
@@ -16,8 +20,13 @@ public class Computer extends Player {
       computerChips += chipAmount;
    }
    @Override
-   public void recieveCard(Card card) {
+   public void receiveCard(Card card) {
       playerHand.receiveCard(card);
+   }
+
+   @Override
+   public String getName() {
+   return computerName;
    }
 
 

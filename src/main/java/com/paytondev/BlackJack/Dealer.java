@@ -16,7 +16,7 @@ public class Dealer {
             for (int i = 0; i < 2; i++){
                 dealerHand.receiveCard(shoeDeck.dealCard());
                 for (Player p : playerList){
-                    p.recieveCard(shoeDeck.dealCard());
+                    p.receiveCard(shoeDeck.dealCard());
                 }
             }
         }

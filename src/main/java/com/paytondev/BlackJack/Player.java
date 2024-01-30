@@ -7,16 +7,20 @@ public class Player {
     Scanner scanner = new Scanner(System.in);
     PlayerHand playerHand = new PlayerHand();
 
+    String name;
+
     public Player() {
 
     }
 
 
 
+public String getName(){
+        return name;
+}
 
 
-
-    public void recieveCard(Card card){
+    public void receiveCard(Card card){
     }
 
     public void playTurn(){
