@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class ShoeDeck {
-    private ArrayList<Card> sixDecksOfCards = new ArrayList<>();
-    private ArrayList<Card> discardCards = new ArrayList<>();
+    private final ArrayList<Card> sixDecksOfCards = new ArrayList<>();
+    private final ArrayList<Card> discardCards = new ArrayList<>();
 
 
 
@@ -20,6 +20,10 @@ public class ShoeDeck {
         return card;
     }
 
+
+    public ArrayList<Card> getDiscardCards(){
+        return discardCards;
+    }
 
 
 

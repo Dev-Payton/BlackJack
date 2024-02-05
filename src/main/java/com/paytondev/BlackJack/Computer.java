@@ -25,6 +25,11 @@ public class Computer extends Player {
    }
 
    @Override
+   public void playTurn() {
+      super.playTurn();
+   }
+
+   @Override
    public String getName() {
    return computerName;
    }

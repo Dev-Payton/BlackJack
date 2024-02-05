@@ -4,8 +4,9 @@ import java.util.ArrayList;
 
 public class Dealer {
 
-    private ShoeDeck shoeDeck = new ShoeDeck();
-    private  PlayerHand dealerHand = new PlayerHand();
+    private final ShoeDeck shoeDeck = new ShoeDeck();
+    ArrayList<Card> playerDiscardPile = shoeDeck.getDiscardCards();
+    private final PlayerHand dealerHand = new PlayerHand();
     ArrayList<Player> playerList;
 
         public Dealer(ArrayList<Player> playerList){
@@ -20,12 +21,15 @@ public class Dealer {
                 }
             }
         }
-            // IMPLEMENT NAMES HERE AND IMPLEMENT THE INVOLVED METHODS
         public void displayAllPlayerHands(){
             for (Player p : playerList){
-                System.out.println();
+                System.out.println(p.getName());
                 p.playerHand.displayPlayerHand();
             }
+        }
+
+        public void returnCardsToShoe(){
+
         }
 
     public void displayDealerFirstCard (){
