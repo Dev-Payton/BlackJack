@@ -28,9 +28,17 @@ public class Dealer {
             }
         }
 
-        public void returnCardsToShoe(){
+        public void returnCardsToShoe(int index){
+            shoeDeck.returnArrayOfCardsToShoe(playerList.get(index).playerHand.returnPlayerHand());
 
         }
+
+        public void resetShoeDeck(){
+            shoeDeck.addDiscardToShoe();
+            shoeDeck.shuffleShoeDeck();
+        }
+
+
 
     public void displayDealerFirstCard (){
         System.out.println(dealerHand.returnPlayerHand().get(0).toString());

@@ -26,8 +26,16 @@ public class Computer extends Player {
 
    @Override
    public void playTurn() {
-      super.playTurn();
+      if (playerHand.checkHand() <= 17){
+         int random =(int) (Math.random() * 100 + 1);
+         if (random <= 25 ){
+            // Implement a method that tells the dealer to give us another card, we will then recheck this cards face value within
+            // the GameEngine's methods.
+         }
+      }
    }
+
+
 
    @Override
    public String getName() {

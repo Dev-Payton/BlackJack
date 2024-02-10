@@ -48,13 +48,29 @@ public class GameEngine {
                System.out.println("Current Hand Value: " + p.playerHand.checkHand());
                 if (p.playerHand.isBlackJack()){
                     System.out.println(p.getName() + " has won this round with a blackjack!");
-                    // Send player Cards Back To Shoe
+
+                    for (int i = 0; i < playerList.size(); i++ ){
+                        if (playerList.get(i).equals(p)){
+                            dealer.returnCardsToShoe(i);
+                            playerList.get(i).playerHand.resetHand();
+                        }
+                    }
+
                     killGameLoop = true;
                 } else if (p.playerHand.checkBust()) {
                     System.out.println(p.getName() + " has went over 21! " +  p.getName() + " is now out for the remainder of the round");
-                    // Send player Cards Back To Shoe
+                    for (int i = 0; i < playerList.size(); i++ ){
+                        if (playerList.get(i).equals(p)){
+                            dealer.returnCardsToShoe(i);
+                            playerList.get(i).playerHand.resetHand();
+                        }
+                    }
                 }
                 else {
+                    // Here lays the actual content of the game
+                    // Here we will implement the players turn
+                    // However as it iterates through the Player list the method playTurn(); will behave differently depending on the state of the individual Player child objects
+                    p.playTurn();
                     System.out.println();
                 }
            }

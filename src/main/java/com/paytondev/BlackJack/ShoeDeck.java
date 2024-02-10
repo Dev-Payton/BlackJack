@@ -2,6 +2,7 @@ package com.paytondev.BlackJack;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class ShoeDeck {
     private final ArrayList<Card> sixDecksOfCards = new ArrayList<>();
@@ -38,8 +39,23 @@ public class ShoeDeck {
         }
     }
 
+   // public void shuffleShoeDeck(){
+    //    Collections.shuffle(sixDecksOfCards);
+   // }
+
     public void shuffleShoeDeck(){
-        Collections.shuffle(sixDecksOfCards);
+        Collections.shuffle(new ArrayList<>() {
+        });
+    }
+
+
+    public void returnArrayOfCardsToShoe(List<Card> discardCards){
+        this.discardCards.addAll(discardCards);
+    }
+
+    public void addDiscardToShoe(){
+        sixDecksOfCards.addAll(discardCards);
+        discardCards.clear();
     }
 
 }
