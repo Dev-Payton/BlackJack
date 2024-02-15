@@ -20,8 +20,8 @@ public class GameEngine {
 
     // The actual flow of the game starts here, initializing the dealer and the player passing them as parameters so that the dealer can manage the players and computers respectively
    public void startGame() {
-       player = new Player();
-       playerList.add(player);
+       HumanPlayer humanPlayer1= new HumanPlayer();
+       playerList.add(humanPlayer1);
        dealer = new Dealer(playerList);
         boolean killGameLoop = false;
 
@@ -70,7 +70,9 @@ public class GameEngine {
                     // Here lays the actual content of the game
                     // Here we will implement the players turn
                     // However as it iterates through the Player list the method playTurn(); will behave differently depending on the state of the individual Player child objects
-                    p.playTurn();
+                    if (p.playTurn().equalsIgnoreCase("Hit")){
+                        p.playerHand.receiveCard(dealer.dealSingleCard());
+                    }
                     System.out.println();
                 }
            }

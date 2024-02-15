@@ -22,8 +22,8 @@ public String getName(){
     public void receiveCard(Card card){
     }
 
-    public void playTurn(){
-
+    public String playTurn(){
+        return null;
     }
 
 

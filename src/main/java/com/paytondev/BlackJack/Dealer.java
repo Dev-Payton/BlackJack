@@ -21,6 +21,11 @@ public class Dealer {
                 }
             }
         }
+
+        public Card dealSingleCard(){
+            return shoeDeck.dealCard();
+
+        }
         public void displayAllPlayerHands(){
             for (Player p : playerList){
                 System.out.println(p.getName());
