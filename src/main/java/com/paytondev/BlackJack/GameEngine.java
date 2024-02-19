@@ -20,11 +20,12 @@ public class GameEngine {
 
     // The actual flow of the game starts here, initializing the dealer and the player passing them as parameters so that the dealer can manage the players and computers respectively
    public void startGame() {
-       HumanPlayer humanPlayer1= new HumanPlayer();
-       playerList.add(humanPlayer1);
+       System.out.println();
+       playerList.add(humanPlayer);
        dealer = new Dealer(playerList);
+       dealer.shuffleShoeDeck();
         boolean killGameLoop = false;
-
+      // System.out.println("TEST CASE ONE");
 
        //Here are my thoughts here before I implement the background methods for the individual player methods and algos
 
@@ -36,14 +37,21 @@ public class GameEngine {
        // Given the dealers card total the dealer would either have to hit or stay, then depending on the value of the deck the corresponding players either bust or win the round
 
        //There should also be a leaderboard of the sorts
-       while(killGameLoop){
+       while(!killGameLoop){
+         //  System.out.println("TEST CASE 2");
 
            dealer.dealCards();
            System.out.println("Dealer's Cards");
            dealer.displayDealerFirstCard();
 
            for (Player p : playerList){
-               System.out.println(p.getName() + "'s Turn: ");
+
+               System.out.println(" \n Press enter to continue the game");
+               scanner.nextLine();
+
+
+              // System.out.println("test 3");
+               System.out.println(p.getName().toUpperCase() + "'s TURN: ");
                p.playerHand.displayPlayerHand();
                System.out.println("Current Hand Value: " + p.playerHand.checkHand());
                 if (p.playerHand.isBlackJack()){
@@ -67,11 +75,28 @@ public class GameEngine {
                     }
                 }
                 else {
+                    boolean killLocalLoop = false;
                     // Here lays the actual content of the game
                     // Here we will implement the players turn
                     // However as it iterates through the Player list the method playTurn(); will behave differently depending on the state of the individual Player child objects
-                    if (p.playTurn().equalsIgnoreCase("Hit")){
-                        p.playerHand.receiveCard(dealer.dealSingleCard());
+
+                    while(!killLocalLoop){
+                        String result = p.playTurn();
+                        if (result.equalsIgnoreCase("Hit")){
+                            System.out.println(p.getName() + ": Has chosen to hit!");
+                            System.out.println("Dealing another card!");
+                            p.playerHand.receiveCard(dealer.dealSingleCard());
+                            System.out.println(p.getName() + ": has a new hand value of:" + p.playerHand.checkHand());
+                        }
+                        else {
+                            System.out.println(p.getName() + ": Has chosen to stay!");
+                            System.out.println("Rotating to the next player ");
+                            killLocalLoop = true;
+                        }
+
+                    }
+
+
                     }
                     System.out.println();
                 }
@@ -83,13 +108,14 @@ public class GameEngine {
 
 
 
-   }
+
 
 
     public void setComputerPlayers(){
 
         System.out.println("How many computer players would you like to add to the table");
         int numberOfPlayers = scanner.nextInt();
+        scanner.nextLine();
         for (int i = numberOfPlayers; i > 0; i--){
             playerList.add(new Computer(generateComputerName()));
         }

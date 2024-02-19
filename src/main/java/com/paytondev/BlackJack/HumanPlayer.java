@@ -1,7 +1,17 @@
 package com.paytondev.BlackJack;
 
+import java.util.Scanner;
+
 public class HumanPlayer extends Player{
 
+    Scanner scanner = new Scanner(System.in);
+
+
+
+    public HumanPlayer(){
+        System.out.println("Can you please enter your desired name");
+       name = scanner.nextLine();
+    }
 
     @Override
     public void receiveCard(Card card) {

@@ -44,6 +44,11 @@ public class Dealer {
         }
 
 
+        public void shuffleShoeDeck(){
+            shoeDeck.shuffleShoeDeck();
+        }
+
+
 
     public void displayDealerFirstCard (){
         System.out.println(dealerHand.returnPlayerHand().get(0).toString());
