@@ -42,7 +42,6 @@ public class GameEngine {
                 scanner.nextLine();
 
 
-                // System.out.println("test 3");
                 System.out.println(p.getName().toUpperCase() + "'s TURN: ");
                 p.playerHand.displayPlayerHand();
                 System.out.println("Current Hand Value: " + p.playerHand.checkHand());
@@ -56,7 +55,7 @@ public class GameEngine {
                         }
                     }
 
-                    killGameLoop = true;
+                    break;
                 } else if (p.playerHand.checkBust()) {
                     p.setBusted(true);
                     System.out.println(p.getName() + " has went over 21! " + p.getName() + " is now out for the remainder of the round");
@@ -73,12 +72,18 @@ public class GameEngine {
                     // However as it iterates through the Player list the method playTurn(); will behave differently depending on the state of the individual Player child objects
 
                     while (!killLocalLoop) {
+                        if (p.playerHand.checkHand() > 21){
+                            System.out.println(p.getName() + " has went over 21! " + p.getName() + " is now out for the remainder of the round");
+                            p.setBusted(true);
+                            break;
+                        }
                         String result = p.playTurn();
 
                         if (result.equalsIgnoreCase("Blackjack")){
                             System.out.println(p.getName() + " has a BlackJack ! ");
                             System.out.println(p.getName() + " has won the round!");
                             killLocalLoop = true;
+                            break;
                         }
                         else if (result.equalsIgnoreCase("Busted")){
                             System.out.println(p.getName() + " has went over 21! " + p.getName() + " is now out for the remainder of the round");
@@ -92,6 +97,8 @@ public class GameEngine {
                             System.out.println(p.getName() + ": Has chosen to stay!");
                             System.out.println("Rotating to the next player ");
                             killLocalLoop = true;
+                            break;
+
                         }
 
                     }

@@ -68,7 +68,7 @@ public class PlayerHand {
 
 
     public boolean isBlackJack() {
-        return handCount == TWENTY_ONE && playerHand.size() == 2;
+        return checkHand() == TWENTY_ONE && playerHand.size() == 2;
     }
 
 }
