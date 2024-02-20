@@ -7,31 +7,32 @@ public class PlayerHand {
 
     private final int TWENTY_ONE = 21;
 
-   private int handCount = 0;
+    private int handCount = 0;
 
 
     private ArrayList<Card> playerHand = new ArrayList<>();
 
-    public PlayerHand(){
+    public PlayerHand() {
 
     }
 
-    public void receiveCard(Card card){
+    public void receiveCard(Card card) {
         playerHand.add(card);
     }
 
 
-    public void displayPlayerHand(){
-        for (Card card : playerHand){
-            System.out.println(card.toString());
+    public void displayPlayerHand() {
+        for (Card card : playerHand) {
+            System.out.println("• " + card.toString());
         }
     }
+
     public List<Card> returnPlayerHand() {
         return new ArrayList<>(playerHand);
     }
 
 
-    public void resetHand(){
+    public void resetHand() {
         playerHand.clear();
     }
 
@@ -40,16 +41,16 @@ public class PlayerHand {
         int aceCount = 0;
 
 
-        for(Card c : playerHand){
+        for (Card c : playerHand) {
             currentHand += c.getRealFaceValue();
             if (c.getRealFaceValue() == 11)
-                aceCount ++;
+                aceCount++;
         }
 
-        while(currentHand > TWENTY_ONE && aceCount > 0){
+        while (currentHand > TWENTY_ONE && aceCount > 0) {
 
-                currentHand -= 10;
-                    aceCount --;
+            currentHand -= 10;
+            aceCount--;
 
         }
 
@@ -57,16 +58,16 @@ public class PlayerHand {
 
     }
 
-    public String getHandToString(){
+    public String getHandToString() {
         return handCount + "";
     }
 
     public boolean checkBust() {
-    return checkHand() > TWENTY_ONE;
+        return checkHand() > TWENTY_ONE;
     }
 
 
-    public boolean isBlackJack(){
+    public boolean isBlackJack() {
         return handCount == TWENTY_ONE && playerHand.size() == 2;
     }
 

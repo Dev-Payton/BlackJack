@@ -32,6 +32,7 @@ public class Card {
     public int getRealFaceValue() {
         return realFaceValue;
     }
+
     public int getSuit() {
         return SUIT;
     }
@@ -93,9 +94,6 @@ public class Card {
         }
 
     }
-
-
-
 
 
 }

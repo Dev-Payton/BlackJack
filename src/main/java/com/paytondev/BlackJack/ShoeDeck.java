@@ -9,29 +9,27 @@ public class ShoeDeck {
     private final ArrayList<Card> discardCards = new ArrayList<>();
 
 
-
-    public ShoeDeck(){
+    public ShoeDeck() {
         setSixDecksOfCards();
         shuffleShoeDeck();
     }
 
-    public Card dealCard(){
+    public Card dealCard() {
         Card card = sixDecksOfCards.get(0);
         sixDecksOfCards.remove(0);
         return card;
     }
 
 
-    public ArrayList<Card> getDiscardCards(){
+    public ArrayList<Card> getDiscardCards() {
         return discardCards;
     }
 
 
-
-    private void setSixDecksOfCards(){
-        for (int i = 0; i < 6; i++ ){
-            for (int x = 1; x < 5; x++){
-                for (int j = 1; j < 14; j++){
+    private void setSixDecksOfCards() {
+        for (int i = 0; i < 6; i++) {
+            for (int x = 1; x < 5; x++) {
+                for (int j = 1; j < 14; j++) {
                     sixDecksOfCards.add(new Card(j, x));
 
                 }
@@ -39,21 +37,16 @@ public class ShoeDeck {
         }
     }
 
-   // public void shuffleShoeDeck(){
-    //    Collections.shuffle(sixDecksOfCards);
-   // }
-
-    public void shuffleShoeDeck(){
-        Collections.shuffle(new ArrayList<>() {
-        });
+    public void shuffleShoeDeck() {
+        Collections.shuffle(sixDecksOfCards);
     }
 
 
-    public void returnArrayOfCardsToShoe(List<Card> discardCards){
+    public void returnArrayOfCardsToShoe(List<Card> discardCards) {
         this.discardCards.addAll(discardCards);
     }
 
-    public void addDiscardToShoe(){
+    public void addDiscardToShoe() {
         sixDecksOfCards.addAll(discardCards);
         discardCards.clear();
     }

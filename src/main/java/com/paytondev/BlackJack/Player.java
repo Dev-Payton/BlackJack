@@ -4,10 +4,13 @@ import java.util.Scanner;
 
 public class Player {
 
+
+    private boolean isBusted = false;
+
     Scanner scanner = new Scanner(System.in);
     PlayerHand playerHand = new PlayerHand();
 
-    String name;
+    public String name;
 
     public Player() {
     }
@@ -26,6 +29,13 @@ public String getName(){
         return null;
     }
 
+    public boolean returnIsBusted(){
+        return isBusted;
+    }
+
+    public void setBusted(boolean bust){
+        isBusted = bust;
+    }
 
 
 
